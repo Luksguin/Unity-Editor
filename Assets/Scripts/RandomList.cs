@@ -7,16 +7,17 @@ public class RandomList : MonoBehaviour
     public List<GameObject> gameObjects;
     GameObject randomObject;
 
-    private void Start()
+    [UnityEditor.MenuItem("Itens/Create")]
+    public static void Create()
     {
-        Random();
+        Debug.Log("Teste");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(randomObject != null)
         {
-            Random();
+            randomObject.transform.position = transform.position;
         }
     }
 
@@ -29,7 +30,7 @@ public class RandomList : MonoBehaviour
 
         randomObject = gameObjects.RandomList();
 
-        randomObject.transform.position = transform.position;
         randomObject.SetActive(true);
+        Debug.Log(randomObject.name);
     }
 }
