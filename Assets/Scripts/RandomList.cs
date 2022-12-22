@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomList : MonoBehaviour
 {
     public List<GameObject> gameObjects;
-    private List<GameObject> olderGameObjects;
+    GameObject randomObject;
 
     private void Start()
     {
@@ -22,24 +22,14 @@ public class RandomList : MonoBehaviour
 
     public void Random()
     {
-        GameObject randomObject = gameObjects.RandomList();
-
-        /*if(randomObject != null)
+        if(randomObject != null)
         {
             randomObject.SetActive(false);
-        }*/
-
-        if(olderGameObjects.Count > 0)
-        {
-            olderGameObjects[0].gameObject.SetActive(false);
-            olderGameObjects.Clear();
         }
+
+        randomObject = gameObjects.RandomList();
 
         randomObject.transform.position = transform.position;
         randomObject.SetActive(true);
-
-        olderGameObjects.Add(randomObject);
-
-        //Debug.Log(olderGameObjects.Count);
     }
 }
