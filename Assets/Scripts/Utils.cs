@@ -6,7 +6,11 @@ public static class Utils
 {
     public static T RandomList<T>(this List<T> list)
     {
-        Debug.Log("Teste");
+        if(list == null || list.Count == 0)
+        {
+            return default(T);
+        }
+
         return list[Random.Range(0, list.Count)];
     }
 }
